@@ -12,7 +12,6 @@ class colorImage: #se crea la clase colorImage
 
     def makeGray(self): #metodo para mostrar la imagen en escala de grises
         cv2.imshow('Gray Image',cv2.cvtColor(self.image,cv2.COLOR_BGR2GRAY)) #se utiliza la funcion cv2.cvtColor() cuyos parámetros son la imagen y el espacio de color que se quiere usar, en nuestro caso se quiere pasar de BGR a Gray por lo que se utiliza cv2.COLOR_BGR2GRAY
-        cv2.waitKey(0)
 
     def colorizeRGB(self,canal_de_color): #metodo para mostrar imagen colorizada con un respectivo canal de color
         if canal_de_color == 'blue': #condicional que verifica si el canal de color deseado es azul
@@ -20,21 +19,18 @@ class colorImage: #se crea la clase colorImage
             b[:,:,1] = 0 #se colocan las componentes verdes en cero
             b[:,:,2] = 0 #se colocan las componentes rojas en cero
             cv2.imshow('Blue image',b) #se muestra la imagen
-            cv2.waitKey(0)
 
         if canal_de_color == 'red':#condicional que verifica si el canal de color deseado es rojo
             r = self.image.copy() #se copia la imagen original en la variable r
             r[:,:,0] = 0 #se colocan las componentes azules en cero
             r[:,:,1] = 0 #se colocan las componentes verdes en cero
             cv2.imshow('Red image',r) #se muestra la imagen
-            cv2.waitKey(0)
 
         if canal_de_color == 'green': #condicional que verifica si el canal de color deseado es verde
             g = self.image.copy() #se copia la imagen original en la variable g
             g[:,:,0] = 0 #se colocan las componentes azules en cero
             g[:,:,2] = 0 #se colocan las componentes rojas en cero
             cv2.imshow('Green image',g) #se muestra la imagen
-            cv2.waitKey(0)
 
     def makeHue(self): #metodo para mostrar imagen en tonos
         HSV_Image = cv2.cvtColor(self.image,cv2.COLOR_BGR2HSV) #se guarda en HSV_Image la imagen original en el espacio de color HSV, por lo que se utiliza la funcion cv2.cvtColor() cuyos parámetros son la imagen y el espacio de color que se quiere usar
@@ -42,4 +38,3 @@ class colorImage: #se crea la clase colorImage
         HSV_Image[:,:,2] = 255 #se coloca la componente V en 255
         HSV_Image = cv2.cvtColor(HSV_Image,cv2.COLOR_HSV2BGR) #se transforma el espacio de color de HSV a BGR
         cv2.imshow('Imagen en tonos',HSV_Image) #se muestra la imagen
-        cv2.waitKey(0)

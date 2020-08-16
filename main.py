@@ -7,3 +7,4 @@ if __name__ == '__main__': #
     imagen.makeGray() #se muestra la imagen en escala de grises
     imagen.colorizeRGB('red') #se muestra la imagen colorizada en rojo
     imagen.makeHue() #se muestra la imagen en tonos
+    cv2.waitKey(0) #desplega todas las imagenes solicitadas
